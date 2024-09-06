@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+  annotations: {}
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+      annotations: {}
+    spec:
+      containers:
+        - name: default
+          image: docker/nginx
+          command:
+            - /bin/bash
+            - -c
+          args:
+            - nginx -g 'daemon off;'
+          env: []
+      restartPolicy: Always
+      serviceAccountName: nginx
+      securityContext:
+        runAsUser: 10000
+        runAsGroup: 10000
+        fsGroup: 10000
