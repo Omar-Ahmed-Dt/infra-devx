@@ -48,6 +48,11 @@ stack: v1.#Stack & {
 			public:        true
 		}
 
+		// stacks.KubernetesBasicStack.components
+		// certManager: k8s:             cluster.k8s
+		// ingressNginx: k8s:            cluster.k8s
+		// externalSecretsOperator: k8s: cluster.k8s
+
 		// irsa: {
 		// 	moduleVersion: "5.32.0"
 		// }
